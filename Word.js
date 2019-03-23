@@ -21,7 +21,7 @@ function Word () {
             this.letterArr[i].compare(letter)
         }
     }
-    this.checkCompleteness = function (){
+    this.checkCompleteness = function (callback1, callback2){
         for (var i = 0; i < this.letterArr.length; i ++){
             if (this.letterArr[i].guessed){
                 this.guessedAll = true
@@ -29,6 +29,12 @@ function Word () {
             else {
                 this.guessedAll = false
             }
+        }
+        if(this.guessedAll){
+            callback1()
+        }
+        else {
+            callback2()
         }
     }
 }
