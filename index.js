@@ -10,7 +10,7 @@ var targetWord;
 
 function start () {
     var randomWord = wordBank[Math.floor(Math.random()* wordBank.length)]
-
+    console.log(randomWord)
     targetWord = new word.Word()
     targetWord.createWord(randomWord)
     targetWord.printWord()
