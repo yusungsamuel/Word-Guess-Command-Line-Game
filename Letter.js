@@ -2,7 +2,7 @@ function Letter (character) {
     this.character = character
     this.guessed = false;
     this.check = function (){
-        if (guessed){
+        if (this.guessed){
             return this.character + " "
         }
         else {
@@ -16,4 +16,5 @@ function Letter (character) {
     }
 }
 
-module.exports = {Letter:Letter}
+
+module.exports = {letter:Letter}
