@@ -3,10 +3,10 @@ function Letter (character) {
     this.guessed = false;
     this.check = function (){
         if (guessed){
-            return this.character
+            return this.character + " "
         }
         else {
-            return "_"
+            return " _"
         }
     }
     this.compare = function (attempt){
