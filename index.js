@@ -1,1 +1,4 @@
 var Word = require("./Word.js")
+
+var wordBank = ["ARTICUNO", "ZAPDOS", "MOLTRES", "MEWTWO", "RAIKOU", "ENTEI", "SUICUNE", "LUGIA", "LATIAS", "LATIOS", "KYOGRE", "GROUDON", "RAYQUAZA", "UXIE","MESPRIT", "AZELF","REGISTEEL", "REGICE", "REGIROCK"]
+
