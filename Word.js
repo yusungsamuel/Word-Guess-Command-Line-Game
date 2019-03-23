@@ -1,3 +1,5 @@
+var Letter = require("./Letter.js")
+
 function Word () {
     this.letterArr = []
     this.printWord = function () {
@@ -13,3 +15,5 @@ function Word () {
         }
     }
 }
+
+module.exports = {Word:Word}

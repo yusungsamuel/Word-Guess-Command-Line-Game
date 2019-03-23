@@ -15,3 +15,5 @@ function Letter (character) {
         }
     }
 }
+
+module.exports = {Letter:Letter}
