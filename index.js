@@ -12,40 +12,54 @@ var targetWord;
 
 function start() {
     var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)]
-    console.log(randomWord)
+    console.log("New Word\n")
     targetWord = new word.Word()
     targetWord.createWord(randomWord)
     targetWord.printWord()
-
-    promptForLetter()
-
-}
+    console.log("Chances Remain: " + targetWord.chance)    
 
 
-function promptForLetter() {
-    inquirer.prompt([
-        {
-            message: "Guess a letter",
-            name: "guess",
-            validate: function (input) {
-                if (input.length !== 1 || alphabet.indexOf(input.toUpperCase()) === -1) {
-                    return false
-                }
-                else {
-                    return true
+    function promptForLetter() {
+        inquirer.prompt([
+            {
+                message: "Guess a letter",
+                name: "guess",
+                validate: function (input) {
+                    if (input.length !== 1 || alphabet.indexOf(input.toUpperCase()) === -1) {
+                        return false
+                    }
+                    else {
+                        return true
+                    }
                 }
             }
-        }
-    ]).then(function (response) {
+        ]).then(function (response) {
+            targetWord.checkLetter(response.guess.toUpperCase())
+            targetWord.printWord()
+            console.log("Chances Remain: " + targetWord.chance + "\n")
+            if(targetWord.chance < 1){
+                console.log("GAME OVER!!")
+                start()
+            }
+            else{
+                targetWord.checkCompleteness(start,promptForLetter)
+            }
+                
+    
+    
+        })
+    }
+    
+    promptForLetter()
 
-        targetWord.checkLetter(response.guess.toUpperCase())
-        targetWord.printWord()
-        targetWord.checkCompleteness(start,promptForLetter)
-        // promptForLetter()
 
 
 
-    })
+
+
 }
+
+
+
 
 start()

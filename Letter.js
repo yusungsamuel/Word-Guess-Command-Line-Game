@@ -6,7 +6,7 @@ function Letter (character) {
             return this.character + " "
         }
         else {
-            return " _"
+            return "_ "
         }
     }
     this.compare = function (attempt){
